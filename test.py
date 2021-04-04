@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox
+from PyQt5.QtWidgets import QLabel, QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
@@ -18,6 +18,10 @@ class App(QMainWindow):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
+
+        # create label
+        self.label = QLabel('No result yet', self)
+        self.label.move(20, 200)
 
         # Create textbox
         self.textbox = QLineEdit(self)
@@ -49,44 +53,40 @@ class App(QMainWindow):
         first_number = int(self.textbox.text())
         second_number = int(self.textbox_2.text())
         result = first_number * second_number
-        QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Abort | QMessageBox.Save, QMessageBox.Save)
+        #QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Abort | QMessageBox.Save, QMessageBox.Save)
+        self.label.setText(f'Result: {result}')
         self.textbox.setText("")
         self.textbox_2.setText("")
-        self.textbox_3.setText("")
-        self.textbox_4.setText("")
 
     @pyqtSlot()
     def on_click_2(self):
         first_number = int(self.textbox.text())
         second_number = int(self.textbox_2.text())
         result = first_number + second_number
-        QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Abort | QMessageBox.Save, QMessageBox.Save)
+        #QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Abort | QMessageBox.Save, QMessageBox.Save)
+        self.label.setText(f'Result: {result}')
         self.textbox.setText("")
         self.textbox_2.setText("")
-        self.textbox_3.setText("")
-        self.textbox_4.setText("")
 
     @pyqtSlot()
     def on_click_3(self):
         first_number = int(self.textbox.text())
         second_number = int(self.textbox_2.text())
         result = first_number - second_number
-        QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Save | QMessageBox.Ok, QMessageBox.Save)
+        #QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Save | QMessageBox.Ok, QMessageBox.Save)
+        self.label.setText(f'Result: {result}')
         self.textbox.setText("")
         self.textbox_2.setText("")
-        self.textbox_3.setText("")
-        self.textbox_4.setText("")
 
     @pyqtSlot()
     def on_click_4(self):
         first_number = int(self.textbox.text())
         second_number = int(self.textbox_2.text())
         result = first_number / second_number
-        QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Abort | QMessageBox.Save, QMessageBox.Save)
+        #QMessageBox.question(self, 'Calculator', f'Here is the result: {result}', QMessageBox.Abort | QMessageBox.Save, QMessageBox.Save)
+        self.label.setText(f'Result: {result}')
         self.textbox.setText("")
         self.textbox_2.setText("")
-        self.textbox_3.setText("")
-        self.textbox_4.setText("")
 
 
 if __name__ == '__main__':
