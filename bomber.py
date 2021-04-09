@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import QLabel, QMainWindow, QApplication, QWidget, QPushBut
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
+from test import App
+
 
 class App(QMainWindow):
 
@@ -41,7 +43,7 @@ class App(QMainWindow):
                     self.on_click_button,
                     button = button,
                     button_row = button_row,
-                    button_collumn = button_collumn
+                    button_column = button_column
                 ))
 
                 # connect button to function on_click
@@ -57,7 +59,7 @@ class App(QMainWindow):
                 else:  # not a bomb, mark button as empty
                     button.setText('empty')
 
-        if __name__ == '__main__':
-            app = QApplication(sys.argv)
-            ex = App()
-            sys.exit(app.exec_())
+    if __name__ == '__main__':
+        app = QApplication(sys.argv)
+        ex = App()
+        sys.exit(app.exec_())
